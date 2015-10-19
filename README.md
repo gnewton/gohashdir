@@ -1,2 +1,2 @@
 # gohashdir
-uint64 to hash filesystem library
+Simple uint64 to hash filesystem library

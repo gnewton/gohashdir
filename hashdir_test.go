@@ -40,3 +40,25 @@ func TestWidthsAndDirWrite(t *testing.T) {
 		}
 	}
 }
+
+func TestBadDir(t *testing.T) {
+	_, _, err := HashDir("/333333333333333", 2, uint64(rand.Int63()))
+	if err == nil {
+		log.Fatal(err)
+	}
+}
+
+func TestBadWidth(t *testing.T) {
+	_, _, err := HashDir("/tmp", 0, uint64(rand.Int63()))
+	if err == nil {
+		log.Fatal(err)
+	}
+}
+
+func TestStringDir(t *testing.T) {
+	_, _, err := HashDirString("/tmp", 2, "abcdefghiujk")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+}
